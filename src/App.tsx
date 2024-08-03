@@ -1,16 +1,11 @@
-import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
+import { ThemeProvider } from "@/components/theme-provider";
+import { MainContents } from "@/components/main-contents";
 
-type AppProps = {};
-
-const App: React.FC<AppProps> = ({}: AppProps): JSX.Element => {
-  const [count, setCount] = useState<number>(0);
-
+const App = () => {
   return (
-    <div className="flex justify-center flex-col items-center">
-      <p className="p-24 text-3xl font-bold text-primary">HELLO WORLD</p>
-      <Button onClick={() => setCount((prev) => prev + 1)}>Clicked {count} times</Button>
-    </div>
+    <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+      <MainContents />
+    </ThemeProvider>
   );
 };
 
